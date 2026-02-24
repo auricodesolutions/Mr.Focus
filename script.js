@@ -335,3 +335,31 @@ if (waLink){
     window.addEventListener('resize', onScroll);
     update();
   })();
+
+    (function(){
+      const pre = document.getElementById("preloader");
+      const bar = document.getElementById("preBar");
+      const pct = document.getElementById("prePct");
+      if(!pre || !bar || !pct) return;
+
+      let p = 0;
+      const tick = setInterval(() => {
+        p = Math.min(92, p + Math.random() * 6);
+        const v = Math.floor(p);
+        bar.style.width = v + "%";
+        pct.textContent = v + "%";
+      }, 140);
+
+      window.addEventListener("load", () => {
+        clearInterval(tick);
+        bar.style.width = "100%";
+        pct.textContent = "100%";
+
+        setTimeout(() => {
+          pre.classList.add("preloader--hide");
+          document.documentElement.classList.remove("is-loading");
+          setTimeout(() => pre.remove(), 500);
+        }, 220);
+      });
+    })();
+ 

@@ -14,17 +14,30 @@
 
   <noscript>
     <style>
-      .preloaderSimple{display:none !important;}
+      .preloader{display:none !important;}
       html.is-loading, html.is-loading body{overflow:auto !important; height:auto !important;}
     </style>
   </noscript>
 </head>
 
 <body>
-  <div class="preloaderSimple" id="preloaderSimple" role="status" aria-live="polite" aria-label="Loading">
-    <div class="preloaderSimple__box">
-      <div class="preloaderSimple__spinner" aria-hidden="true"></div>
-      <p class="preloaderSimple__text">Loading…</p>
+
+  <!-- ✅ NEW PRELOADER (MR FOCUS) -->
+  <div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="preloader__box">
+      <div class="preloader__brand">
+        <div class="preloader__name">MR FOCUS</div>
+        <div class="preloader__tag">BY ANUKA INDEERA</div>
+      </div>
+
+      <div class="preloader__barWrap" aria-hidden="true">
+        <div class="preloader__bar" id="preBar"></div>
+      </div>
+
+      <div class="preloader__meta">
+        <span class="preloader__pct" id="prePct">0%</span>
+        <span class="preloader__dots" aria-hidden="true"></span>
+      </div>
     </div>
   </div>
 
@@ -71,7 +84,7 @@
   <main id="main" class="layerScroll">
 
     <!-- ✅ LAYER 1 -->
-    <section class="hero layer" id="hero" style="--layer:1">
+    <section class="hero" id="hero" style="--layer:1">
       <div class="hero__bg">
         <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true">
           <source src="assets/hero.mp4" type="video/mp4" />
@@ -88,11 +101,51 @@
       </div>
     </section>
 
+    <!-- ✅ LAYER 3 (keep approach animation working) -->
+    <section class="approachStage layer" id="approach"
+      style="--layer:3; --img-left:url('assets/img11.jpg'); --img-right:url('assets/img4.jpg');">
+
+      <div class="approachStage__sticky" aria-hidden="false">
+        <div class="approachStage__bg" aria-hidden="true">
+          <div class="approachStage__half approachStage__half--left"></div>
+          <div class="approachStage__half approachStage__half--right"></div>
+        </div>
+
+        <div class="approachStage__overlay" aria-hidden="true"></div>
+
+        <div class="approachStage__titleWrap" aria-hidden="true">
+          <div class="approachStage__title">
+            OUR APPROACH<br>
+            IS ALL ABOUT<br>
+            CONNECTION
+          </div>
+        </div>
+
+        <article class="approachStage__card" aria-label="Our approach message">
+          <p class="approachStage__top">
+            LETTING THE DAY UNFOLD NATURALLY, AND CAPTURING IT IN A WAY THAT FEELS TRUE TO WHO YOU ARE.
+            BECAUSE AT THE HEART OF EVERY GREAT PHOTO IS A GREAT CONNECTION.
+          </p>
+
+          <div class="approachStage__rule" aria-hidden="true"></div>
+
+          <p class="approachStage__body">
+            If you’re a couple who thrives on adventure, laughs at the little things, and loves to enjoy the ride,
+            we’d love to be there to document your story. Let’s create images that will make you smile for years to come!
+          </p>
+
+          <div class="approachStage__cta">
+            <a class="btn btn--primary" href="categories.html">View Portfolio</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- ✅ LAYER 2 -->
     <section class="section serviceTiles servicesSwitch layer" id="services" style="--layer:2">
       <div class="container">
         <div class="serviceTiles__head reveal">
-          <h2 class="h2 h2--spaced">Our Services</h2>
+          <h2 class="h2 h2--spaced">Services</h2>
           <p class="lead muted">Pick what you need. We’ll handle the rest.</p>
         </div>
 
@@ -144,91 +197,7 @@
         </div>
 
         <div class="svcPanel reveal" id="svcPanel" aria-live="polite">
-          <div class="svcPanel__inner">
-            <!-- <div class="svcPanel__actions">
-              <a class="btn btn--primary" href="contact.html">Enquire Now</a>
-              <a class="btn btn--ghost" href="index.html#work">See Stories</a>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ✅ LAYER 3 (keep approach animation working) -->
-    <section class="approachStage layer" id="approach"
-      style="--layer:3; --img-left:url('assets/img11.jpg'); --img-right:url('assets/img4.jpg');">
-
-      <div class="approachStage__sticky" aria-hidden="false">
-        <div class="approachStage__bg" aria-hidden="true">
-          <div class="approachStage__half approachStage__half--left"></div>
-          <div class="approachStage__half approachStage__half--right"></div>
-        </div>
-
-        <div class="approachStage__overlay" aria-hidden="true"></div>
-
-        <div class="approachStage__titleWrap" aria-hidden="true">
-          <div class="approachStage__title">
-            OUR APPROACH<br>
-            IS ALL ABOUT<br>
-            CONNECTION
-          </div>
-        </div>
-
-        <article class="approachStage__card" aria-label="Our approach message">
-          <p class="approachStage__top">
-            LETTING THE DAY UNFOLD NATURALLY, AND CAPTURING IT IN A WAY THAT FEELS TRUE TO WHO YOU ARE.
-            BECAUSE AT THE HEART OF EVERY GREAT PHOTO IS A GREAT CONNECTION.
-          </p>
-
-          <div class="approachStage__rule" aria-hidden="true"></div>
-
-          <p class="approachStage__body">
-            If you’re a couple who thrives on adventure, laughs at the little things, and loves to enjoy the ride,
-            we’d love to be there to document your story. Let’s create images that will make you smile for years to come!
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ✅ LAYER 4 -->
-    <section class="section section--featuredStories layer" id="work" style="--layer:4">
-      <div class="container storiesWrap">
-        <h2 class="sr-only">Featured Stories</h2>
-        <div class="storiesTitle" aria-hidden="true">FEATURED STORIES</div>
-
-        <div class="storiesCarousel reveal" id="storiesCarousel">
-          <div class="storiesViewport">
-            <div class="storiesTrack" id="storiesTrack">
-              <a class="storySlide" href="contact.html">
-                <div class="storyImg" style="--img:url('assets/work1.jpg')"></div>
-                <div class="storyCap">SANDU &amp; NETHMI • 2025</div>
-              </a>
-              <a class="storySlide" href="contact.html">
-                <div class="storyImg" style="--img:url('assets/work2.jpg')"></div>
-                <div class="storyCap">KAVIN &amp; SHEHANI • 2025</div>
-              </a>
-              <a class="storySlide" href="contact.html">
-                <div class="storyImg" style="--img:url('assets/work3.jpg')"></div>
-                <div class="storyCap">MEVINDA &amp; DILSHI • 2025</div>
-              </a>
-              <a class="storySlide" href="contact.html">
-                <div class="storyImg" style="--img:url('assets/work4.jpg')"></div>
-                <div class="storyCap">RAVIN &amp; RUWANI • 2025</div>
-              </a>
-              <a class="storySlide" href="contact.html">
-                <div class="storyImg" style="--img:url('assets/work5.jpg')"></div>
-                <div class="storyCap">DILAN &amp; SACHI • 2025</div>
-              </a>
-              <a class="storySlide" href="contact.html">
-                <div class="storyImg" style="--img:url('assets/work6.jpg')"></div>
-                <div class="storyCap">NADU &amp; SURESH • 2025</div>
-              </a>
-            </div>
-          </div>
-
-          <button class="carBtn carBtn--prev" type="button" id="storiesPrev" aria-label="Previous">‹</button>
-          <button class="carBtn carBtn--next" type="button" id="storiesNext" aria-label="Next">›</button>
-          <div class="carDots" id="storiesDots" aria-label="Carousel pagination"></div>
+          <div class="svcPanel__inner"></div>
         </div>
       </div>
     </section>
@@ -316,12 +285,6 @@
             </div>
           </a>
         </div>
-
-        <div class="videoCtaWrap reveal">
-          <a class="btn btn--ghost" href="https://www.facebook.com/Mr.Focusphotography/" target="_blank" rel="noreferrer">
-            View More on Facebook
-          </a>
-        </div>
       </div>
     </section>
 
@@ -343,11 +306,9 @@
       </div>
     </section>
 
-    
-
   </main>
 
-   <!-- ===== FOOTER (MR FOCUS) ===== -->
+  <!-- ===== FOOTER (MR FOCUS) ===== -->
   <footer class="footer">
     <div class="container footer__wrap">
       <div class="footer__brandBlock">
@@ -420,19 +381,39 @@
     </div>
   </footer>
 
-
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 
+  <!-- ✅ NEW PRELOADER SCRIPT -->
   <script>
-    window.addEventListener("load", () => {
-      const pre = document.getElementById("preloaderSimple");
-      if (!pre) return;
-      pre.classList.add("preloaderSimple--hide");
-      document.documentElement.classList.remove("is-loading");
-      setTimeout(() => pre.remove(), 500);
-    });
+    (function(){
+      const pre = document.getElementById("preloader");
+      const bar = document.getElementById("preBar");
+      const pct = document.getElementById("prePct");
+      if(!pre || !bar || !pct) return;
+
+      let p = 0;
+      const tick = setInterval(() => {
+        p = Math.min(92, p + Math.random() * 6);
+        const v = Math.floor(p);
+        bar.style.width = v + "%";
+        pct.textContent = v + "%";
+      }, 140);
+
+      window.addEventListener("load", () => {
+        clearInterval(tick);
+        bar.style.width = "100%";
+        pct.textContent = "100%";
+
+        setTimeout(() => {
+          pre.classList.add("preloader--hide");
+          document.documentElement.classList.remove("is-loading");
+          setTimeout(() => pre.remove(), 500);
+        }, 220);
+      });
+    })();
   </script>
+
 </body>
 </html>
